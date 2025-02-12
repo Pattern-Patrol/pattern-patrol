@@ -6,9 +6,6 @@ import com.patternpatrol.model.CheckResult;
 import com.patternpatrol.model.DirectoryRule;
 import com.patternpatrol.rule.DirectoryPatternRule;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.Set;
 
 public class PackageLayeredArchitecture implements DirectoryPatternRule {
