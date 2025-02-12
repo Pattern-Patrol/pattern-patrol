@@ -17,7 +17,7 @@ jobs:
         id: release
         with:
           command: manifest
-          token: ${{secrets.GITHUB_TOKEN}}
+          token: ${{ secrets.GITHUB_TOKEN }}
           default-branch: main
     outputs:
       release_created: ${{ steps.release.outputs.release_created }}
@@ -26,10 +26,8 @@ jobs:
   lint_and_test:
     needs: release-please
     if: ${{ needs.release-please.outputs.release_created }}
-    steps:
-      - uses: actions/lint_and_test.yml
+    uses: ./.github/workflows/lint_and_test.yml
 
   package:
     needs: lint_and_test
-    steps:
-      - uses: actions/package.yml
+    uses: ./.github/workflows/package.yml
