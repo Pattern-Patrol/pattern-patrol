@@ -26,8 +26,8 @@ jobs:
   lint_and_test:
     needs: release-please
     if: ${{ needs.release-please.outputs.release_created }}
-    uses: ./.github/actions/lint_and_test.yml
+    uses: ./.github/actions/lint_and_test.yml@main
 
   package:
     needs: lint_and_test
-    uses: ./.github/actions/package.yml
+    uses: ./.github/actions/package.yml@main
