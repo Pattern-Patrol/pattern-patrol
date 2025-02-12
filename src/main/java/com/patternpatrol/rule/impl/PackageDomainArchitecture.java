@@ -9,6 +9,6 @@ public class PackageDomainArchitecture implements DirectoryPatternRule {
 
     @Override
     public CheckResult check(final DirectoryRule directoryRule, final String targetPath) {
-        return null;//new CheckResult();
+        return null; //new CheckResult();
     }
 }

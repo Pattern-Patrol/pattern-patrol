@@ -6,7 +6,11 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class LayeredConstants {
+public final class LayeredConstants {
+
+    private LayeredConstants() {
+    }
+
     private static final Set<String> ALLOWED_MODULE_NAMES =
             Collections.unmodifiableSet(new HashSet<>(Arrays.asList(
                     "service",

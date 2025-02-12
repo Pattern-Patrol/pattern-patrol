@@ -11,5 +11,15 @@ permissions:
 
 jobs:
   lint_and_test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        java: [ '11', '17', '21' ]
     steps:
-      - uses: actions/lint_and_test.yml
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run custom lint-and-test action
+        uses: ./.github/actions/lint-and-test
+        with:
+          java-version: ${{ matrix.java }}
