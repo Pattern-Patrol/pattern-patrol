@@ -16,5 +16,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - uses: ../actions/lint-and-test/action.yml@main
+      - name: Run custom lint-and-test action
+        uses: ./.github/actions/lint-and-test
         with: {}
