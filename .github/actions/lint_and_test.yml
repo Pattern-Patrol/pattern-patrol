@@ -1,4 +1,5 @@
 name: Lint and Test
+description: Lint and Test
 runs:
   using: ubuntu-latest
   strategy:
