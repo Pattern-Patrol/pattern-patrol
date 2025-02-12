@@ -28,11 +28,23 @@ jobs:
 
   lint_and_test:
     needs: release-please
+    runs-on: ubuntu-latest
     if: ${{ needs.release-please.outputs.release_created }}
-    uses: ./.github/actions/lint-and-test
-    with: {}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run custom lint-and-test action
+        uses: ./.github/actions/lint-and-test
+        with: { }
 
   package:
     needs: lint_and_test
-    uses: ./.github/actions/package
-    with: {}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run custom lint-and-test action
+        uses: ./.github/actions/package
+        with: { }
