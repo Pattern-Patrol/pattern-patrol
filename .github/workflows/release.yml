@@ -29,10 +29,10 @@ jobs:
   lint_and_test:
     needs: release-please
     if: ${{ needs.release-please.outputs.release_created }}
-    uses: ./.github/actions/lint-and-test/action.yml
+    uses: ../actions/actions/lint-and-test/action.yml@main
     with: {}
 
   package:
     needs: lint_and_test
-    uses: ./.github/actions/package/action.yml
+    uses: ../actions/actions/package/action.yml@main
     with: {}

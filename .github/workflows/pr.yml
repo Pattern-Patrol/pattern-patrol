@@ -16,4 +16,5 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - uses: ./.github/actions/lint-and-test/action.yml
+      - uses: ../actions/lint-and-test/action.yml@main
+        with: {}
