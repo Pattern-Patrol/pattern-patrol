@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.0.3](https://github.com/Pattern-Patrol/pattern-patrol/compare/v0.0.2...v0.0.3) (2025-02-19)
+
+
+### Other
+
+* **main:** release 0.0.3-SNAPSHOT ([b3136e6](https://github.com/Pattern-Patrol/pattern-patrol/commit/b3136e62783c2436c13289023aa83335701efbba))
+
+
+### CI
+
+* **#2:** Add mvn package ci ([d6e0cfc](https://github.com/Pattern-Patrol/pattern-patrol/commit/d6e0cfce5ce48501a8cf566a282b4bd80d105ccb))
+* **#2:** Fix pipeline ([f09f523](https://github.com/Pattern-Patrol/pattern-patrol/commit/f09f523456808d6ae302cb25a0f209b85acfe956))
+* **#2:** Package pattern patrol through github action ([9f15d69](https://github.com/Pattern-Patrol/pattern-patrol/commit/9f15d6997e9851e8b142ce8c99e0f6a1e26f3021))
+
 ## [0.0.2](https://github.com/Pattern-Patrol/pattern-patrol/compare/v0.0.1...v0.0.2) (2025-02-18)
 
 
