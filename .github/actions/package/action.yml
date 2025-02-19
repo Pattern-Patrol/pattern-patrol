@@ -1,29 +1,23 @@
-name: Pacakge
+name: Package
 inputs:
   token:
-    description: "Github token with package credentials"
+    description: "GitHub token with package credentials"
     required: true
-    default: ""
   user:
-    description: "Github user with package credentials"
+    description: "GitHub user with package credentials"
     required: true
-    default: ""
 
 runs:
-  using: ubuntu-latest
-  strategy:
-    matrix:
-      java: [ '8', '11', '17', '21' ]
-
+  using: "composite"
   steps:
     - name: Checkout
       uses: actions/checkout@v4
 
-    - name: Setup java
+    - name: Setup Java
       uses: actions/setup-java@v4
       with:
         distribution: 'corretto'
-        java-version: ${{ matrix.java }}
+        java-version: '17'  # ✅ No matrix inside the action
         cache: 'maven'
 
     - name: Configure Maven settings
@@ -37,12 +31,14 @@ runs:
           <servers>
             <server>
               <id>github</id>
-              <username>${{ github.actor }}</username>
-              <password>${{ secrets.GITHUB_TOKEN }}</password>
+              <username>${{ inputs.user }}</username>
+              <password>${{ inputs.token }}</password>
             </server>
           </servers>
         </settings>
         EOL
+      shell: bash
 
     - name: Publish package
       run: mvn --batch-mode deploy
+      shell: bash
