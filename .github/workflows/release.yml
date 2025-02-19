@@ -8,19 +8,22 @@ on:
 jobs:
   release-please:
     permissions:
-      contents: write  # for google-github-actions/release-please-action to create release commit
-      pull-requests: write  # for google-github-actions/release-please-action to create release PR
+      contents: write  # Allows creating a release commit
+      pull-requests: write  # Allows creating a release PR
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - uses: googleapis/release-please-action@v4
+      - name: Run Release Please
+        id: release
+        uses: googleapis/release-please-action@v4
         with:
           command: manifest
           token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
           default-branch: main
+
     outputs:
       release_created: ${{ steps.release.outputs.release_created }}
       release_tag_name: ${{ steps.release.outputs.tag_name }}
@@ -28,14 +31,13 @@ jobs:
   lint_and_test:
     needs: release-please
     runs-on: ubuntu-latest
-    if: ${{ needs.release-please.outputs.release_created }}
+    if: ${{ needs.release-please.outputs.release_created == 'true' }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Run custom lint-and-test action
         uses: ./.github/actions/lint-and-test
-        with: { }
 
   package:
     needs: lint_and_test
@@ -44,8 +46,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Run custom lint-and-test action
+      - name: Run packaging action
         uses: ./.github/actions/package
         with:
-          user: {{github.actor}}
-          token: {{secrets.GITHUB_TOKEN}}
+          user: ${{ github.actor }}
+          token: ${{ secrets.GITHUB_TOKEN }}
