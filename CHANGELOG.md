@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.0.5](https://github.com/Pattern-Patrol/pattern-patrol/compare/v0.0.4...v0.0.5) (2025-02-19)
+
+
+### Other
+
+* **main:** release 0.0.5-SNAPSHOT ([db30134](https://github.com/Pattern-Patrol/pattern-patrol/commit/db301346a22ea51249c4d2b185f57e2040349259))
+
+
+### CI
+
+* **#2:** Fix token for releases ([529a40a](https://github.com/Pattern-Patrol/pattern-patrol/commit/529a40aca1486304f399f3f6ef7b407e46dc9ad9))
+
 ## [0.0.4](https://github.com/Pattern-Patrol/pattern-patrol/compare/v0.0.3...v0.0.4) (2025-02-19)
 
 
