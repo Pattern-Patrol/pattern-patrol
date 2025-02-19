@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.0.4](https://github.com/Pattern-Patrol/pattern-patrol/compare/v0.0.3...v0.0.4) (2025-02-19)
+
+
+### Other
+
+* **main:** release 0.0.4-SNAPSHOT ([6e819f6](https://github.com/Pattern-Patrol/pattern-patrol/commit/6e819f60d3c6c8211b4e2c097a83246dbebd66a5))
+
+
+### CI
+
+* **#2:** Fix release and deployment pipelines ([bafd72d](https://github.com/Pattern-Patrol/pattern-patrol/commit/bafd72d56f01848fa8f2ede0d92c34c6305f4241))
+* **#2:** Publish to github repo ([ac417bf](https://github.com/Pattern-Patrol/pattern-patrol/commit/ac417bf0df95ce93a2ea2fb98521ee27b2f7b9b4))
+
 ## [0.0.3](https://github.com/Pattern-Patrol/pattern-patrol/compare/v0.0.2...v0.0.3) (2025-02-19)
 
 
