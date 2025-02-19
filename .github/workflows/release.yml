@@ -16,8 +16,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - uses: google-github-actions/release-please-action@v3
-        id: release
+      - release-please:
+        runs-on: ubuntu-latest
+        uses: googleapis/release-please-action@v4
         with:
           command: manifest
           token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
@@ -44,6 +45,24 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Configure Maven settings
+        run: |
+          mkdir -p ~/.m2
+          cat > ~/.m2/settings.xml <<EOL
+          <settings>
+            <activeProfiles>
+              <activeProfile>github</activeProfile>
+            </activeProfiles>
+            <servers>
+              <server>
+                <id>github</id>
+                <username>${{ github.actor }}</username>
+                <password>${{ secrets.GITHUB_TOKEN }}</password>
+              </server>
+            </servers>
+          </settings>
+          EOL
 
       - name: Run custom lint-and-test action
         uses: ./.github/actions/package

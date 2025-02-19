@@ -12,6 +12,32 @@
         <checkstyle-plugin.version>3.6.0</checkstyle-plugin.version>
     </properties>
 
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub OWNER Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/pattern-patrol/pattern-patrol</url>
+        </repository>
+    </distributionManagement>
+
+    <profiles>
+        <profile>
+            <id>github</id>
+            <repositories>
+                <repository>
+                    <id>central</id>
+                    <url>https://repo1.maven.org/maven2</url>
+                </repository>
+                <repository>
+                    <id>github</id>
+                    <url>https://maven.pkg.github.com/pattern-patrol/pattern-patrol</url>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+        </profile>
+    </profiles>
 
     <dependencies>
         <!-- Maven Plugin API -->
